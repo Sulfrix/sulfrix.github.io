@@ -18,7 +18,7 @@ print("[Y] Run the program")
 print("[N] Don't but save it")
 print("[S] Save the program somewhere")
 local event, key = os.pullEvent("key")
-if key == keys.y then
+if key == keys.y or args[1] == "update" then
   shell.run("clear")
   shell.run("slaydsfiles/program")
 end
