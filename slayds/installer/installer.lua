@@ -12,7 +12,6 @@ end
 program = fs.open("slaydsfiles/program", "w")
 program.write(path.readAll())
 program.close()
-path.close()
 print("Program has finished downloading. Run it?")
 print("[Y] Run the program")
 print("[N] Don't but save it")
@@ -32,5 +31,5 @@ if key == keys.s then
   program = fs.open(destpath, "w")
   program.write(path.readAll())
   program.close()
-  path.close()
 end
+path.close()
