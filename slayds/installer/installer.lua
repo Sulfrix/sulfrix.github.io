@@ -1,6 +1,7 @@
 local args = {...}
 local file = args[1]
 local path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
+print("Downloading ".. args[1] .."...")
 if not fs.exists("slaydsfiles/program") then
   if not fs.exists("slaydsfiles/") then
     fs.makeDir("slaydsfiles/")
