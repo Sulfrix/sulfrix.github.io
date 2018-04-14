@@ -1,6 +1,6 @@
 local args = {...}
 local file = args[1]
-local path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file)
+local path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
 if not fs.exists("slaydsfiles/program") then
   if not fs.exists("slaydsfiles/") then
     fs.makeDir("slaydsfiles/")
