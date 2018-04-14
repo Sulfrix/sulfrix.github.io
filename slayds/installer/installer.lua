@@ -26,6 +26,7 @@ if key == keys.n then
 end
 if key == keys.s then
   shell.run("clear")
+  print(path.readAll())
   print("Enter the path for the program.")
   local destpath = read()
   program = fs.open(destpath, "w")
