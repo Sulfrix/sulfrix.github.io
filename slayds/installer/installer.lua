@@ -12,6 +12,7 @@ end
 program = fs.open("slaydsfiles/program", "w")
 program.write(path.readAll())
 program.close()
+path.close()
 print("Program has finished downloading. Run it?")
 print("[Y] Run the program")
 print("[N] Don't but save it")
@@ -26,7 +27,7 @@ if key == keys.n then
 end
 if key == keys.s then
   shell.run("clear")
-  print(path.readAll())
+  path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
   print("Enter the path for the program.")
   local destpath = read()
   program = fs.open(destpath, "w")
