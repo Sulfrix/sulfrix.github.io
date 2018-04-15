@@ -1,0 +1,6 @@
+shell.run("clear")
+print("You are now installing O. An operating system made by ProjectB.")
+print("I (theslaymann) do not take credit for this.")
+print("O installation continues in 5 seconds.")
+sleep(5)
+shell.run("pastebin run 4HLxeETG") 
