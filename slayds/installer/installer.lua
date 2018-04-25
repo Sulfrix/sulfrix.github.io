@@ -1,10 +1,6 @@
 local args = {...}
 local action = args[1]
 local file = args[2]
-if action = "update" then
-  file = "update"
-  action = "run"
-end
 if action = nil then
   print("Usage:")
   print("slayds run <file> - downloads a file to run")
