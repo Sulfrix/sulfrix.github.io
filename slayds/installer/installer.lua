@@ -1,12 +1,6 @@
 local args = {...}
 local action = args[1]
 local file = args[2]
-if action = nil then
-  print("Usage:")
-  print("slayds run <file> - downloads a file to run")
-  print("slayds save <file> <path> - downloads a file and saves it to the path")
-  return
-end
 local path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
 print("Downloading ".. args[1] .."...")
 if not fs.exists("slaydsfiles/program") then
