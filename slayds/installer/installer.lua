@@ -1,7 +1,6 @@
 local args = {...}
 local action = args[1]
 local file = args[2]
-local destpath = args[3]
 if action = update then
   file = "update"
   action = "run"
@@ -33,6 +32,7 @@ end
 if action == "save" then
   shell.run("clear")
   path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
+  local destpath = args[3]
   program = fs.open(destpath, "w")
   program.write(path.readAll())
   program.close()
