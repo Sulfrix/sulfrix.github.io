@@ -6,7 +6,7 @@ if action = update then
   file = "update"
   action = "run"
 end
-if action = "" then
+if action = nil then
   print("Usage:")
   print("slayds run <file> - downloads a file to run")
   print("slayds save <file> <path> - downloads a file and saves it to the path")
