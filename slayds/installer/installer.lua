@@ -1,5 +1,6 @@
 local args = {...}
-local file = args[1]
+local action = args[1]
+local file = args[2]
 local path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
 print("Downloading ".. args[1] .."...")
 if not fs.exists("slaydsfiles/program") then
@@ -13,19 +14,11 @@ program = fs.open("slaydsfiles/program", "w")
 program.write(path.readAll())
 program.close()
 path.close()
-print("Program has finished downloading. Run it?")
-print("[Y] Run the program")
-print("[N] Don't but save it")
-print("[S] Save the program somewhere")
-local event, key = os.pullEvent("key")
-if key == keys.y or args[1] == "update" then
+if action == "run" then
   shell.run("clear")
   shell.run("slaydsfiles/program")
 end
-if key == keys.n then
-  print("File saved to slaydsfiles/program")
-end
-if key == keys.s then
+if action == "save" then
   shell.run("clear")
   path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
   print("Enter the path for the program.")
