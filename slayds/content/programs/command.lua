@@ -11,8 +11,8 @@ while true do
   if success == false then
     term.setTextColor(colors.red)
     print("Error!")
-    term.setTextColor(colors.white)
   end
   print(output[1])
+  term.setTextColor(colors.white)
 end
   
