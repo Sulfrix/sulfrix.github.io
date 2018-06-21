@@ -13,6 +13,6 @@ while true do
     print("Error!")
     term.setTextColor(colors.white)
   end
-  print(output)
+  print(output[1])
 end
   
