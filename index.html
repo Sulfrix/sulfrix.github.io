@@ -4,7 +4,14 @@
 </head>
 <body>
   <h>Welcome to this trashy website!</h>
+	<h>POP QUIZ!</h>
+	<h>What will elmo do tonight?</h>
+	<h id="elmo answer></h>
+	       <button onClick="FigureItOut()">Find out the answer"</button>
 	<script>
-      var elmo = "gonna shoot you tonight"
+      		function FigureItOut() {
+		var elmo = "gonna shoot you tonight";
+		document.getElementById("elmo answer").innerHTML = elmo;
+		}
     </script>
 </body></html>
