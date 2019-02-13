@@ -5,6 +5,7 @@ if (urmom != NaN) {
     var mymomstring = "You see, my mom is ";
     var mymomstring = mymomstring.concat(mymomscale);
     alert(mymomstring)
+    window.location.replace("https://theslaymann.github.io/");
 }
 else {
     alert("oh my god you fucking idiot you're supposed to type a number!");
