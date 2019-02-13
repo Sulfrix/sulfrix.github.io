@@ -1,5 +1,6 @@
 var urmom = prompt("On a scale from one to ten, how fat is your mom?");
-var urmom = Math.round(urmom);
+var urmom = urmom / 2
+var urmom = urmom * 2
 if (urmom != NaN) {
     alert("Hah.");
     var mymomscale = Math.round(urmom / 2);
