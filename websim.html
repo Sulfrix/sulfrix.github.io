@@ -1,8 +1,10 @@
 <head>
-    <a href="https://theslaymann.github.io">Back to home</a>
 </head>
 <br />
 <body style="text-align: center;">
+    <h1>Experimental Web Simulator</h1>
+    <p>Enter an URL into the textbox below and Click 'Go' to see that website (most are broken at the moment)</p>
+    <a href="https://theslaymann.github.io">Back to home</a>
     <input id="urlEntry" style="border-radius: 10px;border-color: aqua;">
     <button onclick="goToURL()">Go</button>
     <script>
@@ -11,14 +13,13 @@
             var url = document.getElementById("urlEntry").value;
             var http = new XMLHttpRequest;
             http.open("GET", proxyurl + url);
-            http.onreadystatechange = function() {
-            if (http.readyState === 4 && http.status === 200) {
-                    document.getElementById("webBody").innerHTML = http.responseText;
+            http.onreadystatechange = function () {
+                if (http.readyState === 4 && http.status === 200) {
+                    document.getElementById("content").innerHTML = http.responseText;
                 }
             }
             http.send();
-            history.pushState("", url, url);
         }
     </script>
 </body>
-<div id="webBody">Pending Web Content...</div>
+<div id="content">Pending Web Content...</div>
