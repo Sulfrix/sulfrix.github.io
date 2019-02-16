@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 	<link rel="stylesheet" type="text/css" href="oof.css">
-	<h1>Welcome</h1>
+	<h1 id="header">Welcome</h1>
 	<p>Today we'll be having a pop quiz!</p>
 	<p>The question is: Why am I so depressed at times?</p>
 </head>
@@ -11,6 +11,9 @@
 	<div id="answer"></div>
 	<script src="https://theslaymann.github.io/docs/reveal.js"></script>
 	<script src="/docs/visit.js"></script>
+    <script>
+        document.getElementById("header").style.width = screen.width;
+    </script>
 	<a href="/embeds">Click here to go to the Random Embeds page!</a>
 	<a href="https://github.com/theslaymann/theslaymann.github.io/tree/master">GitHub source</a>
 </body>
