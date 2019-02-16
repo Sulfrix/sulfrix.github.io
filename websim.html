@@ -16,10 +16,15 @@
             http.onreadystatechange = function () {
                 if (http.readyState === 4 && http.status === 200) {
                     document.getElementById("content").innerHTML = "<p>Website loaded!</p>" + http.responseText;
+                    document.domain = url;
                 }
             }
             http.send();
         }
+        document.onkeyup = function (e) {
+            if (e.which == 77) {
+                document.getElementById("content").innerHTML = Website closed.;
+            }
     </script>
 </body>
 <div id="content">Pending Web Content...</div>
