@@ -1,0 +1,15 @@
+<body>
+    <script>
+        var url = prompt("Enter the URL you want to recieve.");
+        var http = new XMLHttpRequest;
+        http.open("GET", url);
+        http.onreadystatechange = function() {
+            if (http.readyState === 4 && http.status === 200) {
+                document.getElementById("webBody").innerHTML = http.responseText;
+            }
+        }
+        http.send();
+        alert("Trying to revieve website...");
+    </script>
+</body>
+<body id="webBody"></body>
