@@ -10,9 +10,9 @@ button {
     	border-radius: 20px;
 }
 h1 {
-	background: #4b5ef2;
+	background: $9ed5ff;
 	width: 1920px;
-	font-color: #ffffff;
+	color: #ffffff;
     	margin-top: -12px !important;
    	margin-left: -8px !important;
     	padding: 10px;
