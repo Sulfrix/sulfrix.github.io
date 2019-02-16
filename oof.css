@@ -1,5 +1,4 @@
 html {
-	 margin-left: 20px; 
 	 margin-top: 4px;
 	 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	 text-align: center;
@@ -14,4 +13,8 @@ h1 {
 	background: #4b5ef2;
 	width: 1920px;
 	font-color: #ffffff;
+    	margin-top: -12px !important;
+   	margin-left: -8px !important;
+    	padding: 10px;
 }
+
