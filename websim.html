@@ -8,7 +8,7 @@
     <script>
         function goToURL() {
             var proxyurl = "https://cors-anywhere.herokuapp.com/";
-            var url = document.getElementById("urlEntry").innerHTML;
+            var url = document.getElementById("urlEntry").value;
             var http = new XMLHttpRequest;
             http.open("GET", proxyurl + url);
             http.onreadystatechange = function() {
