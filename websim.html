@@ -15,7 +15,7 @@
             http.open("GET", proxyurl + url);
             http.onreadystatechange = function () {
                 if (http.readyState === 4 && http.status === 200) {
-                    document.getElementById("content").innerHTML = http.responseText;
+                    document.getElementById("content").innerHTML = "<p>Website loaded!</p>" + http.responseText;
                 }
             }
             http.send();
