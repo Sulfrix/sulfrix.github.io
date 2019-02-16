@@ -3,18 +3,22 @@
 </head>
 <br />
 <body>
+    <form id="urlEntry">URL</form>
+    <button onclick="goToURL()"></button>
     <script>
-        var proxyurl = "https://cors-anywhere.herokuapp.com/";
-        var url = prompt("Enter the URL you want to recieve.");
-        var http = new XMLHttpRequest;
-        http.open("GET", proxyurl + url);
-        http.onreadystatechange = function() {
+        function goToURL() {
+            var proxyurl = "https://cors-anywhere.herokuapp.com/";
+            var url = document.getElementById("urlEntry").innerHTML;
+            var http = new XMLHttpRequest;
+            http.open("GET", proxyurl + url);
+            http.onreadystatechange = function() {
             if (http.readyState === 4 && http.status === 200) {
-                document.getElementById("webBody").innerHTML = http.responseText;
+                    document.getElementById("webBody").innerHTML = http.responseText;
+                }
             }
+            http.send();
+            history.pushState("", url, url);
         }
-        http.send();
-        history.pushState("", url, url)
     </script>
 </body>
-<body id="webBody"></body>
+<div id="webBody">Pending Web Content...</div>
