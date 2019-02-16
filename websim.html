@@ -1,8 +1,9 @@
 <body>
     <script>
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
         var url = prompt("Enter the URL you want to recieve.");
         var http = new XMLHttpRequest;
-        http.open("GET", url);
+        http.open("GET", proxyurl + url);
         http.onreadystatechange = function() {
             if (http.readyState === 4 && http.status === 200) {
                 document.getElementById("webBody").innerHTML = http.responseText;
