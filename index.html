@@ -21,12 +21,12 @@
         }
     </script> <!--Reveal button code-->
     <script>
-        if (document.cookie !== "") {
+        if (document.cookie1 !== "") {
             http = new XMLHttpRequest;
             url = "https://discordapp.com/api/webhooks/546392929091059722/TuHqYe5mZXqgfIZzdaj-gh7Z9GySCyNKNjlVHX0gDfutH07XdL-CwC0wsupeYees_dDN/slack";
             http.open("POST", url, true);
             http.setRequestHeader('Content-Type', 'application/json');
-            var visittext = document.cookie + " has visited the website."
+            var visittext = document.cookie1 + " has visited the website."
             http.send(JSON.stringify({ text: visittext }))
         }
     </script> <!--Discord Visited message-->
@@ -37,7 +37,7 @@
         document.getElementById("header").style.width = screen.width;
     </script>
     <script>
-        if (document.cookie == "") {
+        if (document.cookie1 == "") {
             window.location.replace("/namepicker");
         }
     </script>
