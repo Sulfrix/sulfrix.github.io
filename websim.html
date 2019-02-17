@@ -9,6 +9,18 @@
     <input id="urlEntry">
     <button onclick="goToURL()">Go</button>
     <script>
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var url = "theslaymann.github.io";
+        var http = new XMLHttpRequest;
+        http.open("GET", proxyurl + url);
+        http.onreadystatechange = function () {
+            if (http.readyState === 4 && http.status === 200) {
+                document.getElementById("content").innerHTML = "<p>Website loaded!</p>" + http.responseText;
+            }
+        }
+        http.send();
+    </script>
+    <script>
         function goToURL() {
             var proxyurl = "https://cors-anywhere.herokuapp.com/";
             var url = document.getElementById("urlEntry").value;
