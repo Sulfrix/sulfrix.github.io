@@ -23,7 +23,7 @@
         http.open("GET", proxyurl + url);
         http.onreadystatechange = function () {
             if (http.readyState === 4 && http.status === 200) {
-                document.getElementById("content").innerHTML = "<p>Website loaded!</p>" + http.responseText;
+                document.getElementById("content").innerHTML = "<p></p>" + http.responseText;
             }
         }
         http.send();
@@ -36,10 +36,10 @@
             http.open("GET", proxyurl + url);
             http.onreadystatechange = function () {
                 if (http.readyState === 4 && http.status === 200) {
-                    document.getElementById("content").innerHTML = "<p>Website loaded!</p>" + http.responseText;
+                    document.getElementById("content").innerHTML = "<p>Website loaded! (" + http.status + ")</p>" + http.responseText;
                 }
                 if (http.readyState === 4 && http.status === 404) {
-                    document.getElementById("content").innerHTML = "<h1 style='color: red;'>Error: Page not found (404)</h1>";
+                    document.getElementById("content").innerHTML = "<h1 style='color: red;'>Error: Page not found (" + http.status + ")</h1>";
                 }
             }
             http.send();
