@@ -63,6 +63,10 @@
             http.open("GET", proxyurl + url);
             http.onreadystatechange = function () {
                 if (http.readyState === 4 && http.status === 200) {
+                    var httpInclude = url.includes("https://");
+                    if (httpInclude = false) {
+                        var url = "https://" + url;
+                    }
                     document.getElementById("content").innerHTML = "<base href=" + url + "><p>Website loaded! (" + http.status + ")</p>" + http.responseText;
                 }
                 if (http.readyState === 4 && http.status === 404) {
