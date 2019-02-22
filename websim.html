@@ -40,21 +40,11 @@
     </style>
     <h1>Experimental Web Simulator</h1>
     <p>Enter an URL into the textbox below and Click 'Go' to see that website (most are broken at the moment)</p>
-    <a href="/index.html" id="BackToHome">Back to home</a>
-    <input id="urlEntry">
-    <button onclick="goToURL()" id="GoButton">Go</button>
-    <script>
-        var proxyurl = "https://cors-anywhere.herokuapp.com/";
-        var url = "theslaymann.github.io";
-        var http = new XMLHttpRequest;
-        http.open("GET", proxyurl + url);
-        http.onreadystatechange = function () {
-            if (http.readyState === 4 && http.status === 200) {
-                document.getElementById("content").innerHTML = "<p></p>" + http.responseText;
-            }
-        }
-        http.send();
-    </script>
+    <form action="javascript:void(0);">
+        <a href="/index.html" id="BackToHome">Back to home</a>
+        <input id="urlEntry">
+        <button onclick="goToURL()" id="GoButton">Go</button>
+    </form>
     <script>
         function goToURL() {
             var proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -63,10 +53,13 @@
             http.open("GET", proxyurl + url);
             http.onreadystatechange = function () {
                 if (http.readyState === 4 && http.status === 200) {
+                    var url = document.getElementById("urlEntry").value;
                     var httpInclude = url.includes("https://");
-                    if (httpInclude = false) {
+                    if (httpInclude == false) {
                         var url = "https://" + url;
+                        document.getElementById("urlEntry").value = url;
                     }
+                    console.log("URL after https insertion:" + url);
                     document.getElementById("content").innerHTML = "<base href=" + url + "><p>Website loaded! (" + http.status + ")</p>" + http.responseText;
                 }
                 if (http.readyState === 4 && http.status === 404) {
