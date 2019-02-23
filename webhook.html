@@ -1,6 +1,10 @@
 <body>
     <script>
+        var success = new Audio("/user_moved.mp3");
+        var fail = new Audio("/user_leave.mp3");
+        var start = new Audio("/user_joined.mp3");
         function send() {
+            start.play();
             var http = new XMLHttpRequest;
             var url = document.getElementById("webhookURL").value;
             url = "https://cors-anywhere.herokuapp.com/" + url
@@ -11,6 +15,17 @@
             if (document.getElementById("fullJSON").value == true) {
                 var message = document.getElementById("message").value;
             }
+            http.onreadystatechange = function() {
+                if (http.readyState === 4 && http.status === 200) {
+                    success.play();
+                }
+                else if (http.readyState === 4) {
+                    fail.play();
+                }
+            }
+            //if (document.getElementById("msgErase").value == true) {
+            //    document.getElementById("message").value = '';
+            //}
             http.open("POST", url, true);
             //http.setRequestHeader("Content-Type", "application/json");
             message = JSON.parse(message);
@@ -28,7 +43,7 @@
             width: 40%;
         }
 
-        #fullJSON {
+        .checkbox {
             width: 15px;
             box-shadow: inset 0 0 0 0px transparent;
             background: gainsboro;
@@ -106,10 +121,13 @@
         <input id="username" autocomplete=off>
         <hr>
         <p1>Avatar URL:</p1>
-        <input id="avatar" autocomplete=off>
-        <hr>
-        <input id="fullJSON" type="checkbox">
+        <input id="avatar" autocomplete=off type=url>
+        <hr id="hr2">
+        <input id="fullJSON" type="checkbox" class="checkbox">
         <p1>Message = JSON</p1>
+        <hr>
+        <!--<input id="msgErase" type="checkbox" class="checkbox">
+        <p1>Erase message box on send</p1>-->
         <hr id="hr2">
         <button onclick="send()">Send POST request</button>
     </form>
