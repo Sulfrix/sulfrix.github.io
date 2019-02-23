@@ -5,7 +5,12 @@
             var url = document.getElementById("webhookURL").value;
             url = "https://cors-anywhere.herokuapp.com/" + url
             var message = document.getElementById("message").value;
-            var message = '{"text": "' + message + '"}';
+            var username = document.getElementById("username").value;
+            var avatar = document.getElementById("avatar").value;
+            var message = '{"text": "' + message + '", "username": "' + username + '", "avatar_url": "' + avatar + '"}';
+            if (document.getElementById("fullJSON").value == true) {
+                var message = document.getElementById("message").value;
+            }
             http.open("POST", url, true);
             //http.setRequestHeader("Content-Type", "application/json");
             message = JSON.parse(message);
@@ -20,7 +25,14 @@
             background: gainsboro;
             transition: all 0.25s ease;
             outline: 0px;
-            width:40%;
+            width: 40%;
+        }
+
+        #fullJSON {
+            width: 15px;
+            box-shadow: inset 0 0 0 0px transparent;
+            background: gainsboro;
+            border-radius: 10px;
         }
 
         input:focus {
@@ -28,7 +40,8 @@
         }
 
         button {
-            background: #acd8ff;
+            background: #7289DA;
+            color: white;
             border: 0px;
             border-radius: 5px;
             transition: all 0.25s ease;
@@ -50,38 +63,65 @@
             width: 0px;
             border-width: 0px;
         }
+
         #hr2 {
             width: 300px;
             border-width: 1px;
         }
+
         h1 {
-            background: #9ed5ff;
-	        color: #ffffff;
+            background: #7289DA;
+            color: #ffffff;
             margin-top: -12px !important;
-   	        margin-left: -8px !important;
+            margin-left: -8px !important;
             padding: 10px;
         }
+
+        html {
+            background: #23272A;
+        }
+
+        p1 {
+            color: white;
+        }
+
+        a {
+            color: #0096cf;
+        }
     </style>
-    <h1>HTTP POST Sender</h1>
-    <p1>Send HTTP POST requests to any site you want.</p1>
-    <br>
-    <p1>Note: these will work best with Discord Webhooks.</p1>
+    <h1>Discord Webhook Operator!</h1>
+    <p1>Operate webhooks on a discord server.</p1>
     <br>
     <a href="/">Back to home</a>
     <hr id="hr2">
     </p1>
     <form action="javascript:void(0);">
-        Webhook URL: <input id="webhookURL" autocomplete=off>
+        <p1>Webhook URL:</p1>
+        <input id="webhookURL" autocomplete=off>
         <hr>
-        Message: <input id="message" autocomplete=off>
+        <p1>Message</p1>
+        <input id="message" autocomplete=off>
         <hr>
+        <p1>Discord Username:</p1>
+        <input id="username" autocomplete=off>
+        <hr>
+        <p1>Avatar URL:</p1>
+        <input id="avatar" autocomplete=off>
+        <hr>
+        <input id="fullJSON" type="checkbox">
+        <p1>Message = JSON</p1>
+        <hr id="hr2">
         <button onclick="send()">Send POST request</button>
     </form>
     <hr id="hr2">
     <h1>URL Presets</h1>
-    <p1>These are presets for specific websites that do accept requests.</p1>
+    <p1>Here are some preset webhook urls.</p1>
     <hr>
-    <button onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/548912048168501288/8-xn0QuPd1g9KziDmLoHyptWCW3UyXqddnmYeU6-xXZcihn-vmBoDHxvUHNxkUdB8-40/slack'">Our Discord Server</button>
+    <button
+        onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/548912048168501288/8-xn0QuPd1g9KziDmLoHyptWCW3UyXqddnmYeU6-xXZcihn-vmBoDHxvUHNxkUdB8-40/slack'">Our
+        Discord Server</button>
     <hr>
-    <button onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/546392929091059722/TuHqYe5mZXqgfIZzdaj-gh7Z9GySCyNKNjlVHX0gDfutH07XdL-CwC0wsupeYees_dDN/slack'">Testing Discord Server</button>
+    <button
+        onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/546392929091059722/TuHqYe5mZXqgfIZzdaj-gh7Z9GySCyNKNjlVHX0gDfutH07XdL-CwC0wsupeYees_dDN/slack'">Testing
+        Discord Server</button>
 </body>
