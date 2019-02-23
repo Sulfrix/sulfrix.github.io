@@ -1,4 +1,17 @@
 <body>
+    <script>
+        function send() {
+            var http = new XMLHttpRequest;
+            var url = document.getElementById("webhookURL").value;
+            url = "https://cors-anywhere.herokuapp.com/" + url
+            var message = document.getElementById("message").value;
+            var message = '{"text": "' + message + '"}';
+            http.open("POST", url, true);
+            //http.setRequestHeader("Content-Type", "application/json");
+            message = JSON.parse(message);
+            http.send(JSON.stringify(message));
+        }
+    </script>
     <style>
         input {
             padding: 5px;
@@ -71,14 +84,4 @@
     <button onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/548912048168501288/8-xn0QuPd1g9KziDmLoHyptWCW3UyXqddnmYeU6-xXZcihn-vmBoDHxvUHNxkUdB8-40/slack'">Our Discord Server</button>
     <hr>
     <button onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/546392929091059722/TuHqYe5mZXqgfIZzdaj-gh7Z9GySCyNKNjlVHX0gDfutH07XdL-CwC0wsupeYees_dDN/slack'">Testing Discord Server</button>
-    <script>
-        function send() {
-            const http = new XMLHttpRequest;
-            var url = document.getElementById("webhookURL").value;
-            var message = '{text: "' + document.getElementById('message').value + '"}';
-            http.open("POST", url, true);
-            http.setRequestHeader("Content-Type", "application/json");
-            http.send(JSON.stringify(message));
-        }
-    </script>
 </body>
