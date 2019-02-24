@@ -5,6 +5,7 @@
         var start = new Audio("/user_joined.mp3");
         function send() {
             start.play();
+            document.getElementById("submit").style = "background-color: #43b581;";
             var http = new XMLHttpRequest;
             var url = document.getElementById("webhookURL").value;
             url = "https://cors-anywhere.herokuapp.com/" + url
@@ -22,6 +23,9 @@
                 else if (http.readyState === 4) {
                     fail.play();
                 }
+                if (http.readyState === 4) {
+                    document.getElementById("submit").style = "background-color: #7289DA";
+                }
             }
             //if (document.getElementById("msgErase").value == true) {
             //    document.getElementById("message").value = '';
@@ -37,7 +41,8 @@
             padding: 5px;
             border-radius: 5px;
             border: 0px;
-            background: gainsboro;
+            background: #535353;
+            color: white;
             transition: all 0.25s ease;
             outline: 0px;
             width: 40%;
@@ -46,12 +51,14 @@
         .checkbox {
             width: 15px;
             box-shadow: inset 0 0 0 0px transparent;
-            background: gainsboro;
+            background: #535353;
             border-radius: 10px;
         }
 
         input:focus {
             box-shadow: inset 0 0 0 2px gray;
+            background: #ffffff;
+            color: black;
         }
 
         button {
@@ -129,7 +136,7 @@
         <!--<input id="msgErase" type="checkbox" class="checkbox">
         <p1>Erase message box on send</p1>-->
         <hr id="hr2">
-        <button onclick="send()">Send POST request</button>
+        <button onclick="send()" id="submit"><img src="https://canary.discordapp.com/assets/4bc527c257233fc69b94342d77bcb9ee.svg" height=14></img>Send POST request</button>
     </form>
     <hr id="hr2">
     <h1>URL Presets</h1>
@@ -140,6 +147,6 @@
         Discord Server</button>
     <hr>
     <button
-        onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/546392929091059722/TuHqYe5mZXqgfIZzdaj-gh7Z9GySCyNKNjlVHX0gDfutH07XdL-CwC0wsupeYees_dDN/slack'">Testing
+        onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/549052785182638080/TBcqbs78qGi3kIMCAfZzNwu47oCyMu-_JKnaRc2o6J0wVBToVgfOKOuqLjToxXU0eS66/slack'">Testing
         Discord Server</button>
 </body>
