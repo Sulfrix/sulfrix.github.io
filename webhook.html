@@ -3,6 +3,7 @@
         var success = new Audio("/user_moved.mp3");
         var fail = new Audio("/user_leave.mp3");
         var start = new Audio("/user_joined.mp3");
+        var ptt = new Audio("ptt_activate.mp3");
         function send() {
             start.play();
             document.getElementById("submit").style = "background-color: #43b581;";
@@ -149,10 +150,14 @@
     <p1>Here are some preset webhook urls.</p1>
     <hr>
     <button
-        onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/548912048168501288/8-xn0QuPd1g9KziDmLoHyptWCW3UyXqddnmYeU6-xXZcihn-vmBoDHxvUHNxkUdB8-40/slack'">Our
+        onclick="var ptt = new Audio('ptt_activate.mp3');
+        ptt.play();
+        document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/548912048168501288/8-xn0QuPd1g9KziDmLoHyptWCW3UyXqddnmYeU6-xXZcihn-vmBoDHxvUHNxkUdB8-40/slack'">Our
         Discord Server</button>
     <hr>
     <button
-        onclick="document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/549052785182638080/TBcqbs78qGi3kIMCAfZzNwu47oCyMu-_JKnaRc2o6J0wVBToVgfOKOuqLjToxXU0eS66/slack'">Testing
+        onclick="var ptt = new Audio('ptt_activate.mp3');
+        ptt.play();
+        document.getElementById('webhookURL').value = 'https://discordapp.com/api/webhooks/549052785182638080/TBcqbs78qGi3kIMCAfZzNwu47oCyMu-_JKnaRc2o6J0wVBToVgfOKOuqLjToxXU0eS66/slack'">Testing
         Discord Server</button>
 </body>
