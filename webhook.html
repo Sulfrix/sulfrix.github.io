@@ -15,7 +15,7 @@
             var avatar = document.getElementById("avatar").value;
             var message = '{"text": "' + message + '", "username": "' + username + '", "avatar_url": "' + avatar + '"}';
             var messageString = message
-            if (document.getElementById("fullJSON").value == true) {
+            if (document.getElementById("fullJSON").checked == true) {
                 var message = document.getElementById("message").value;
             }
             http.onreadystatechange = function() {
@@ -30,9 +30,9 @@
                     console.log("Message (" + messageString + ") has been sent to " + url + " with status of " + http.status)
                 }
             }
-            //if (document.getElementById("msgErase").value == true) {
-            //    document.getElementById("message").value = '';
-            //}
+            if (document.getElementById("msgErase").checked == true) {
+                document.getElementById("message").value = '';
+            }
             http.open("POST", url, true);
             //http.setRequestHeader("Content-Type", "application/json");
             message = JSON.parse(message);
@@ -142,8 +142,8 @@
         <input id="fullJSON" type="checkbox" class="checkbox">
         <p1>Message = JSON</p1>
         <hr>
-        <!--<input id="msgErase" type="checkbox" class="checkbox">
-        <p1>Erase message box on send</p1>-->
+        <input id="msgErase" type="checkbox" class="checkbox">
+        <p1>Erase message box on send</p1>
         <hr id="hr2">
         <button onclick="send()" id="submit">Send POST request</button>
     </form>
