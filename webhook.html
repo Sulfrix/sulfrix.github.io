@@ -14,6 +14,7 @@
             var username = document.getElementById("username").value;
             var avatar = document.getElementById("avatar").value;
             var message = '{"text": "' + message + '", "username": "' + username + '", "avatar_url": "' + avatar + '"}';
+            var messageString = message
             if (document.getElementById("fullJSON").value == true) {
                 var message = document.getElementById("message").value;
             }
@@ -26,7 +27,7 @@
                 }
                 if (http.readyState === 4) {
                     document.getElementById("submit").style = "background-color: #7289DA";
-                    console.log("Message (" + message + ") has been sent to " + url + " with status of " + http.status)
+                    console.log("Message (" + messageString + ") has been sent to " + url + " with status of " + http.status)
                 }
             }
             //if (document.getElementById("msgErase").value == true) {
