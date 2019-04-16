@@ -35,8 +35,13 @@
             }
             http.open("POST", url, true);
             //http.setRequestHeader("Content-Type", "application/json");
-            message = JSON.parse(message);
-            http.send(JSON.stringify(message));
+            if (document.getElementById("fullJSON").checked == false) {
+                message = JSON.parse(message);
+                http.send(JSON.stringify(message));
+            }
+            else {
+                http.send(message);
+            }
         }
     </script>
     <style>
