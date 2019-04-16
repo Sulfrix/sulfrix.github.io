@@ -47,6 +47,8 @@
     </form>
     <script>
         function goToURL() {
+            $("#content").load(document.getElementById("urlEntry").value)
+            /*
             var proxyurl = "https://cors-anywhere.herokuapp.com/";
             var url = document.getElementById("urlEntry").value;
             var http = new XMLHttpRequest;
@@ -67,6 +69,7 @@
                 }
             }
             http.send();
+            */
         }
     </script>
 </body>
