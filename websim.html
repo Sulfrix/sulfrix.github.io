@@ -1,7 +1,6 @@
 <head>
 </head>
 <br />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body style="text-align: center;">
     <style>
     #urlEntry {
@@ -48,8 +47,6 @@
     </form>
     <script>
         function goToURL() {
-            $("#content").load(document.getElementById("urlEntry").value)
-            /*
             var proxyurl = "https://cors-anywhere.herokuapp.com/";
             var url = document.getElementById("urlEntry").value;
             var http = new XMLHttpRequest;
@@ -70,7 +67,6 @@
                 }
             }
             http.send();
-            */
         }
     </script>
 </body>
