@@ -2,9 +2,6 @@
 <html lang="en-us">
 <head>
     <title>theslaymann's website</title>
-	<h1 id="header">Welcome</h1>
-	<p>Today we'll be having a pop quiz!</p>
-	<p>The question is: He likes them _____</p>
 </head>
 <body>
     <style>
@@ -34,21 +31,7 @@
             padding: 10px;
         }
     </style>
-	<script>
-        function FigureItOut() {
-            var elmo = "big!";
-            document.getElementById("answer").innerHTML = elmo;
-            document.getElementById("revealButton").innerHTML = "Hide answer";
-            document.getElementById("revealButton").onClick = "hideAnswer()";
-        }
-        function hideAnswer() {
-            document.getElementById("answer") = "";
-            document.getElementById("revealButton").innerHTML = "Reveal answer";
-            document.getELementById("revealButton").onClick = "FigureItOut()"
-        }
-    </script> <!--Reveal button code-->
-    <button id="revealButton" onClick="FigureItOut()">Reveal answer</button>
-	<div id="answer"></div>
+	
     <script>
         document.getElementById("header").style.width = screen.width;
     </script>
