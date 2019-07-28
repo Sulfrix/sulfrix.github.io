@@ -1,6 +1,6 @@
 local args = {...}
-local action = args[1]
-local file = args[2]
+local action = args[0]
+local file = args[1]
 local path = http.get("https://sulfrix.github.io/slayds/content/programs/".. file ..".lua")
 print("Downloading ".. args[1] .."...")
 if not fs.exists("slaydsfiles/program") then
