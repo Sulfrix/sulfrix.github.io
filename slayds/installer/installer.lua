@@ -39,16 +39,38 @@ if action == nil and not options.cleanmode == true then
 end
 
 if options.cleanmode == true then
-  shell.run("clear")
-  term.setTextColor(colors.lightGray)
-  print("Clean Mode")
-  term.setTextColor(colors.white)
-  print("Welcome to Slay Download System!")
-  print("-----Actions-----")
-  print("R - Downloads and runs a file")
-  print("S - Saves a file at a path")
-  print("C - Change your Clean Mode Preferences")
-  print("E - Exit")
+  while true do
+    shell.run("clear")
+    term.setTextColor(colors.lightGray)
+    print("Clean Mode")
+    term.setTextColor(colors.white)
+    print("Welcome to Slay Download System!")
+    print("-----Actions-----")
+    print("R - Downloads and runs a file")
+    print("S - Saves a file at a path")
+    print("C - Change your Clean Mode Preferences")
+    print("E - Exit")
+    local event, key = os.pullEvent('key')
+    if key == keys.r then
+      print("Enter the name of the file you want to run.")
+      local action = "run"
+      local file = read()
+      break
+    end
+    if key == keys.s then
+      print("Enter the name of the file you want to save.")
+      local action = "save"
+      local file = read()
+      break
+    end
+    if key == keys.c then
+      cleanmode()
+      return
+    end
+    if key == keys.e then
+      return
+    end
+  end
 end
 
 if file == nil then
