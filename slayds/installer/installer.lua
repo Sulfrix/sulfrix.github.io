@@ -9,6 +9,8 @@ function cleanmode ()
   local event, key = os.pullEvent("key")
   if key == keys.y then
     options.cleanmode = true
+  else
+    options.cleanmode = false
   end
   local optfile = fs.open("slaydsfiles/options", "w")
   optfile.write(textutils.serialise(options))
