@@ -1,7 +1,7 @@
 local args = {...}
 local action = args[1]
 local file = args[2]
-local path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
+local path = http.get("https://sulfrix.github.io/slayds/content/programs/".. file ..".lua")
 print("Downloading ".. args[1] .."...")
 if not fs.exists("slaydsfiles/program") then
   if not fs.exists("slaydsfiles/") then
@@ -21,7 +21,7 @@ if action == "run" then
 end
 if action == "save" then
   shell.run("clear")
-  path = http.get("https://theslaymann.github.io/slayds/content/programs/".. file ..".lua")
+  path = http.get("https://sulfrix.github.io/slayds/content/programs/".. file ..".lua")
   local destpath = args[3]
   program = fs.open(destpath, "w")
   program.write(path.readAll())

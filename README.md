@@ -1,4 +1,4 @@
-# theslaymann.github.io
+# sulfrix.github.io
 My little website
 I just kinda mess around with HTML and JavaScript
 not good at it of course
