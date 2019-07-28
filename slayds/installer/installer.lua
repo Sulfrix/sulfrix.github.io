@@ -95,7 +95,10 @@ program = fs.open("slaydsfiles/program", "w")
 program.write(path.readAll())
 program.close()
 path.close()
-
+if action == "cleanmode" then
+  cleanmode()
+  return
+end
 if action == "run" then
   shell.run("clear")
   shell.run("slaydsfiles/program")
