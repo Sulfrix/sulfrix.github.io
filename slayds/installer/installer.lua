@@ -52,18 +52,21 @@ if options.cleanmode == true then
     print("E - Exit")
     local event, key = os.pullEvent('key')
     if key == keys.r then
+      sleep(0.1)
       print("Enter the name of the file you want to run.")
       local action = "run"
       local file = read()
       break
     end
     if key == keys.s then
+      sleep(0.1)
       print("Enter the name of the file you want to save.")
       local action = "save"
       local file = read()
       break
     end
     if key == keys.c then
+      sleep(0.1)
       cleanmode()
       return
     end
