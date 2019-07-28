@@ -51,7 +51,6 @@ if options.cleanmode == true then
   print("E - Exit")
 end
 
-local options = fs.open()
 if file == nil then
   print("Please enter the desired file to download/run")
   return
