@@ -1,6 +1,21 @@
 local args = {...}
 local action = args[1]
 local file = args[2]
+if not fs.exists("slaydsfiles/options") then
+  local options = {
+    cleanmode = false
+  }
+  shell.run("clear")
+  print("Clean Mode Setting")
+  print("Press Y to enable Clean Mode.")
+  pring("Press anything else to disable.")
+  local event, key = os.pullEvent("key")
+  if key == keys.y then
+    options.cleanmode = true
+  end
+  local optfile = fs.open("slaydsfiles/options", "w")
+  optfile.write(textutils.serialise(options))
+  optfile.close()
 if action == nil then
   print("Usage:")
   print("slayds run <file>: Runs a file from SlayDS servers")
