@@ -76,6 +76,11 @@ if options.cleanmode == true then
   end
 end
 
+if action == "cleanmode" then
+  cleanmode()
+  return
+end
+
 if file == nil then
   print("Please enter the desired file to download/run")
   return
@@ -95,10 +100,7 @@ program = fs.open("slaydsfiles/program", "w")
 program.write(path.readAll())
 program.close()
 path.close()
-if action == "cleanmode" then
-  cleanmode()
-  return
-end
+
 if action == "run" then
   shell.run("clear")
   shell.run("slaydsfiles/program")
