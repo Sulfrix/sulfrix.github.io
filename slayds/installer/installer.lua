@@ -5,7 +5,7 @@ function cleanmode ()
   shell.run("clear")
   print("Clean Mode Setting")
   print("Press Y to enable Clean Mode.")
-  pring("Press anything else to disable.")
+  print("Press anything else to disable.")
   local event, key = os.pullEvent("key")
   if key == keys.y then
     options.cleanmode = true
