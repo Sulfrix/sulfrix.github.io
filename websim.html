@@ -59,7 +59,7 @@
                         var url = "https://" + url;
                         document.getElementById("urlEntry").value = url;
                     }
-                    console.log("URL after https insertion:" + url);
+                    console.log("URL after https insertion:" + proxyurl + url);
                     document.getElementById("content").innerHTML = "<base href=" + proxyurl + url + "><p>Website loaded! (" + http.status + ")</p>" + http.responseText;
                 }
                 if (http.readyState === 4 && http.status === 404) {
