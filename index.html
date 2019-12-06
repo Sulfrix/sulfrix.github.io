@@ -75,7 +75,14 @@
         FrixBot to your server!</a>
     <hr>
     <h1>Portal Tag Test</h1>
-<portal src="/websim.html"></portal>
+<portal src="/websim.html" id="websimPortal"></portal>
+<script>
+    var portal = document.getElementById('websimPortal')
+    portal.addEventListner('click', evt = > {
+        portal.activate();
+    }
+</script>
+
 </body>
 
 </html>
