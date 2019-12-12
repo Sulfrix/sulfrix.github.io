@@ -6,110 +6,14 @@
 	<meta property="og:title" content="Sulfrix's Website" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="Random JS things I toy around with, and a couple of useful things." />
-	<script>
-		var div = document.getElementById('portalContainer')
-		if (!'HTMLPortalElement' in window) {
-			div.innerHTML = `Your browser doesn't support the portal tag! On chrome, it can be enabled thru <a href="chrome://flags">here!</a>`
-		}
-		var portal = document.createElement('portal')
-		portal.addEventListner('click', evt => {
-			portal.activate();
-		})
-		div.appendChild(portal)
-	</script>
+	<script src="homepage.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<h1><img src="https://cdn.discordapp.com/avatars/205036941874429953/9b6e9c01ce091ac40ebd5ab5dae4f1b6.png?size=128"
 			style="width: 2.5%; height: 2.5%;margin-right: 10px; border-radius: 50px; border-top: 10px;"></img>Sulfrix's
 		website</h1>
-	<style>
-		@media screen and (prefers-color-scheme: dark) {
-			:root {
-			--accent-color: #2b6580;
-			--accent-text-color: #ffffff;
-			--background-color: #292929;
-			--text-color: #ffffff;
-			}
-		}
-		@media screen and (prefers-color-scheme: light) and (light-level: dim) {
-			:root {
-			--accent-color: #3988ac;
-			--accent-text-color: #ffffff;
-			--background-color: #ffffff;
-			--text-color: #000000;
-			}
-		}
-
-		:root {
-			margin-top: 4px;
-			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-			text-align: center;
-			background: var(--background-color);
-			color: var(--text-color);
-			transition: all 0.25s ease;
-
-		}
-
-		body {
-			margin-right: 0px;
-		}
-
-
-		button {
-			background: var(--accent-color);
-			border: #56a7ef;
-			padding: 10px;
-			border-radius: 20px;
-			margin: 10px;
-			cursor: pointer;
-			transition: all 0.25s ease;
-			color: var(--accent-text-color);
-		}
-
-		h1 {
-			background: var(--accent-color);
-			color: var(--accent-text-color);
-			margin-top: -12px !important;
-			margin-left: -8px !important;
-			padding: 10px;
-		}
-
-
-		a {
-			background: var(--accent-color);
-			padding: 4px;
-			margin: 10px;
-			text-decoration: none;
-			color: var(--accent-text-color);
-			border-radius: 5px;
-			transition: all 0.25s;
-		}
-
-		a:hover {
-			box-shadow: 0px 0px 0px 2px var(--accent-text-color);
-		}
-
-		a:active {
-			box-shadow: 0px 0px 0px 3px #7289da;
-		}
-
-		portal {
-			width: 100%;
-			height: 100%;
-			transition: width height 0.25s ease;
-
-		}
-
-		.zoomIn {
-			position: fixed;
-		}
-		hr {
-			border: 0px;
-			margin: 10px;
-			margin-bottom: 20px;
-		}
-	</style>
 	<a href="https://github.com/sulfrix/sulfrix.github.io/tree/master">GitHub source</a>
 	<a href="/websim.html">Experimental Web Simulator!</a>
 	<a href="/webhook.html">Send webhook POST commands!</a>
@@ -123,12 +27,14 @@
 		allowtransparency="true" frameborder="0"></iframe>
 	<br>
 	<p>A very simple bot made for groups of friends who trust each other.</p>
-	<a href="https://discordapp.com/api/oauth2/authorize?client_id=590798866593611776&permissions=2146958839&scope=bot">Invite
-		FrixBot to your server!</a>
+	<a href="https://discordapp.com/api/oauth2/authorize?client_id=590798866593611776&permissions=2146958839&scope=bot">Invite FrixBot to your server!</a>
 	<hr>
 	<h1>Portal Tag Test</h1>
 	<div id="portalContainer">Portal Container</div>
-
+	<script>
+		let portal = createPortal('webhook.html')
+		document.getElementById('portalConainer').append(portal)
+	</script>
 </body>
 
 </html>

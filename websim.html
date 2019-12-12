@@ -1,73 +1,72 @@
-<head>
-</head>
+<head> </head>
 <br />
 <body>
-    <style>
-    #urlEntry {
-        padding: 5px;
-        border-radius: 5px;
-        border: 0px;
-        background: gainsboro;
-        transition: all 0.25s ease;
-        outline: 0px;
-    }
-    #urlEntry:focus {
-        box-shadow: inset 0 0 0 2px gray;
-    }
-    #GoButton {
-        background: #acd8ff;
-        border: 0px;
-        border-radius: 5px;
-        transition: all 0.25s ease;
-        cursor: pointer;
-        padding: 5px;
-    }
-    #GoButton:hover {
-        box-shadow: inset 0 0 0 2px black;
-    }
-    #BackToHome {
-        margin: 10px;
-        background: #b0daff;
-        padding: 5px;
-        border-radius: 5px;
-        color: black;
-        text-decoration: none;
-        transition: all 0.25s ease;
-    }
-    #BackToHome:hover {
-        box-shadow: inset 0 0 0 2px black;
-    }
-    </style>
-    <h1>Experimental Web Simulator</h1>
-    <p>Enter an URL into the textbox below and Click 'Go' to see that website (most are broken at the moment)</p>
-    <form action="javascript:void(0);">
-        <a href="/index.html" id="BackToHome">Back to home</a>
-        <input id="urlEntry">
-        <button onclick="goToURL()" id="GoButton">Go</button>
-    </form>
-    <script>
-        function goToURL() {
-            var proxyurl = "https://cors-anywhere.herokuapp.com/";
-            var url = document.getElementById("urlEntry").value;
-            var http = new XMLHttpRequest;
-            http.open("GET", proxyurl + url);
-            http.onreadystatechange = function () {
-                if (http.readyState === 4 && http.status === 200) {
-                    var url = document.getElementById("urlEntry").value;
-                    var httpInclude = url.includes("https://");
-                    if (httpInclude == false) {
-                        var url = "https://" + url;
-                        document.getElementById("urlEntry").value = url;
-                    }
-                    console.log("URL after https insertion:" + proxyurl + url);
-                    document.getElementById("content").innerHTML = "<base href=" + proxyurl + url + "><p>Website loaded! (" + http.status + ")</p>" + http.responseText;
-                }
-                if (http.readyState === 4 && http.status === 404) {
-                    document.getElementById("content").innerHTML = "<h1 style='color: red;'>Error: Page not found (" + http.status + ")</h1>";
-                }
-            }
-            http.send();
-        }
-    </script>
+	<style>
+		#urlEntry {
+			padding: 5px;
+			border-radius: 5px;
+			border: 0px;
+			background: gainsboro;
+			transition: all 0.25s ease;
+			outline: 0px;
+		}
+		#urlEntry:focus {
+			box-shadow: inset 0 0 0 2px gray;
+		}
+		#GoButton {
+			background: #acd8ff;
+			border: 0px;
+			border-radius: 5px;
+			transition: all 0.25s ease;
+			cursor: pointer;
+			padding: 5px;
+		}
+		#GoButton:hover {
+			box-shadow: inset 0 0 0 2px black;
+		}
+		#BackToHome {
+			margin: 10px;
+			background: #b0daff;
+			padding: 5px;
+			border-radius: 5px;
+			color: black;
+			text-decoration: none;
+			transition: all 0.25s ease;
+		}
+		#BackToHome:hover {
+			box-shadow: inset 0 0 0 2px black;
+		}
+	</style>
+	<h1>Experimental Web Simulator</h1>
+	<p>Enter an URL into the textbox below and Click 'Go' to see that website (most are broken at the moment)</p>
+	<form action="javascript:void(0);">
+		<a href="/index.html" id="BackToHome">Back to home</a>
+		<input id="urlEntry" />
+		<button onclick="goToURL()" id="GoButton">Go</button>
+	</form>
+	<script>
+		function goToURL() {
+			var proxyurl = 'https://cors-anywhere.herokuapp.com/';
+			var url = document.getElementById('urlEntry').value;
+			var http = new XMLHttpRequest();
+			http.open('GET', proxyurl + url);
+			http.onreadystatechange = function() {
+				if (http.readyState === 4 && http.status === 200) {
+					var url = document.getElementById('urlEntry').value;
+					var httpInclude = url.includes('https://');
+					if (httpInclude == false) {
+						var url = 'https://' + url;
+						document.getElementById('urlEntry').value = url;
+					}
+					console.log('URL after https insertion:' + proxyurl + url);
+					document.getElementById('content').innerHTML = '<base href=' + proxyurl + url + '><p>Website loaded! (' + http.status + ')</p>' + http.responseText;
+				}
+				if (http.readyState === 4 && http.status === 404) {
+					document.getElementById('content').innerHTML = "<h1 style='color: red;'>Error: Page not found (" + http.status + ')</h1>';
+				}
+			};
+			http.send();
+		}
+	</script>
 </body>
 <div id="content">Pending Web Content...</div>
