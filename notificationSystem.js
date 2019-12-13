@@ -72,6 +72,9 @@ function refreshNotifications() {
 			}, 1000)
 
 		})
+		y.addEventListener('click', evt => {
+			console.log(evt.path)
+		})
 		text.innerHTML = x.content;
 		closeButton.classList.add('closeButton')
 		closeButton.innerHTML = 'Dismiss'
