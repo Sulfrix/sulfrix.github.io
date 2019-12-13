@@ -57,7 +57,7 @@
 @keyframes closeAniNotif {
     0% {opacity: 100%; transform: none;}
     50% {opacity: 100%; transform: scale(0.7);}
-    100% {opacity: 0%; transform: scale(0.7) translate(200%, 0%);}
+    100% {opacity: 0%; transform: scale(0.7) translate(150%, 0%);}
 }
 
 @keyframes closeAniButton {
