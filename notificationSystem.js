@@ -1,41 +1,21 @@
+console.log(this + ": Loading notification system")
 var notifArea = document.createElement('div');
-var style = document.createElement('style');
+var style = document.createElement('link');
 if (window.localStorage.getItem('notifications') == null || window.localStorage.getItem('notifications') == "undefined") {
 	window.localStorage.setItem('notifications', '[]')
 }
-style.innerHTML = `
-	.notifArea {
-		position: fixed;
-		bottom: 0px;
-		right: 26px;
-		width: 30%;
-		margin: 3px;
-	}
-	.notification {
-		padding: 10px;
-		border-radius: 5px;
-		margin: 3px;
-		width: 100%;
-		background: #353535;
-		color: #ffffff;
-	}
-	.closeButton {
-		background: #454545;
-		padding: 4px;
-		border-radius: 5px;
-		color: #ffffff;
-		margin-left: 10px;
-	}
-`;
+var closingAnimations = 0
+style.rel = 'stylesheet'
+style.href = 'notifications.css'
 notifArea.classList.add('notifArea');
 notifArea.id = 'notifArea';
-notifArea.append(style);
+document.body.append(style);
 document.body.append(notifArea);
 
 class Notifsys {
-	constructor (key) {
+	constructor(key) {
 		this.storageKey = key
-		
+
 	}
 	get notifList() {
 		return JSON.parse(window.localStorage.getItem(this.storageKey))
@@ -43,7 +23,7 @@ class Notifsys {
 	set notifList(notifList) {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(notifList))
 	}
-	appendNotif (content, refresh) {
+	appendNotif(content, refresh) {
 		let tmpnotif = {}
 		let tmplist = this.notifList
 		tmpnotif.content = content
@@ -69,7 +49,6 @@ function removeNotif(notifID) {
 function refreshNotifications() {
 	let notifArea = document.getElementById('notifArea');
 	notifArea.innerHTML = ""
-	notifArea.appendChild(style)
 	let notifs = notifsys.notifList;
 	for (i in notifs) {
 		let x = notifs[i];
@@ -77,25 +56,31 @@ function refreshNotifications() {
 		let text = document.createElement('div');
 		let closeButton = document.createElement('button');
 		text.id = i
-		closeButton.addEventListener('click', evt=>{
-			console.log(evt)
+		closeButton.addEventListener('click', evt => {
+			evt.path[0].classList.add('closingNotif')
+			evt.path[2].classList.add('closingNotif')
 			let x = evt.path[1].id
 			x = parseInt(x, 10)
-			console.log(x)
 			removeNotif(x)
-			refreshNotifications()
-		}
-		)
+			closingAnimations += 1
+			setTimeout(function () {
+				evt.path[2].classList.add('closedNotif')
+				closingAnimations -= 1
+				if (closingAnimations <= 0) {
+					refreshNotifications()
+				}
+			}, 1000)
+
+		})
 		text.innerHTML = x.content;
 		closeButton.classList.add('closeButton')
 		closeButton.innerHTML = 'Dismiss'
-		text.appendChild(closeButton)
-		y.appendChild(text)
+		text.classList.add('text')
 		y.classList.add('notification')
 		notifArea.appendChild(y)
-	}
-	;
-}
-;
+		y.appendChild(text)
+		text.appendChild(closeButton)
+	};
+};
 
 refreshNotifications()
