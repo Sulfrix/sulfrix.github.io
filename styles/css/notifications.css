@@ -1,0 +1,177 @@
+.notifArea {
+  all: initial;
+  position: fixed;
+  display: block;
+  bottom: 0px;
+  right: 26px;
+  width: 30%;
+  margin: 3px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  transition: all 0.5s;
+}
+
+.notification {
+  all: initial;
+  display: block;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 6px;
+  width: 100%;
+  overflow: hidden;
+  background: #353535;
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.479);
+}
+
+@media screen and (max-width: 800px) {
+  .notifArea {
+    width: 100%;
+    right: -10px;
+    padding: 20px;
+    margin: 0px;
+    overflow: scroll;
+    height: 50%;
+    background: #353535c7;
+    transform: translateY(87%);
+    scroll-snap-type: y mandatory;
+    border-radius: 10px;
+  }
+
+  .notification.closingNotif {
+    animation-name: closeAniNotifMobile;
+    animation-duration: 1.001s;
+  }
+
+  .notifArea::before {
+    content: "Notifications";
+    text-align: center;
+    color: #ffffff;
+    display: block;
+    transition: all 0.5s;
+    scroll-snap-align: start;
+  }
+
+  .notifArea:hover::before {
+    font-size: 50px;
+    font-weight: 600;
+    text-shadow: 0px 5px 10px black;
+  }
+
+  .notifArea:hover {
+    transform: translateY(0px);
+    height: 70%;
+    background: #2e2e2e;
+    scroll-snap-type: none;
+  }
+
+  .notifArea:hover > .notification {
+    opacity: 100%;
+  }
+
+  .notification {
+    width: 91%;
+    margin-right: 0px;
+    float: right;
+    opacity: 0%;
+    transition: all 0.5s;
+  }
+
+  .notification:hover .notifArea {
+    background-color: #ff5151;
+  }
+}
+.closedNotif {
+  transform: scale(0);
+  transform: translate(40, 0);
+}
+
+@keyframes notifAppear {
+  0% {
+    transform: scale(0, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.closeButton {
+  all: initial;
+  background: #454545;
+  padding: 4px;
+  border-radius: 5px;
+  color: #ffffff;
+  float: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.closeButton.closingNotif {
+  animation-name: closeAniButton;
+  animation-duration: 1.1s;
+}
+
+@media screen and (min-width: 800px) {
+  .notification.closingNotif {
+    animation-name: closeAniNotif;
+    animation-duration: 1.001s;
+  }
+}
+@keyframes closeAniNotif {
+  0% {
+    opacity: 100%;
+    transform: none;
+  }
+  50% {
+    opacity: 100%;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 0%;
+    transform: scale(0.7) translate(150%, 0%);
+  }
+}
+@keyframes closeAniNotifMobile {
+  0% {
+    opacity: 100%;
+    transform: none;
+  }
+  50% {
+    opacity: 100%;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 0%;
+    transform: scale(0, 0.7);
+  }
+}
+@keyframes closeAniButton {
+  0% {
+    display: block;
+  }
+  25% {
+    color: transparent;
+    transform: scale(0, 1);
+  }
+  50% {
+    background: #ff5151;
+    color: transparent;
+    transform: scale(0);
+  }
+  100% {
+    background: #ff5151;
+    color: transparent;
+    transform: scale(0);
+  }
+}
+.text {
+  width: 100%;
+  padding: 3px;
+}
+
+.closeButton:hover {
+  background: #5a5a5a;
+  padding: 4px;
+}
+
+/*# sourceMappingURL=notifications.css.map */

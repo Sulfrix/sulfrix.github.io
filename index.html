@@ -4,11 +4,12 @@
 <head>
 	<title>Sulfrix's website</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="/manifest.json">
 	<meta property="og:title" content="Sulfrix's Website" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="Random JS things I toy around with, and a couple of useful things." />
 	<script src="homepage.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="styles/css/style.css">
 </head>
 
 <body>
@@ -30,13 +31,6 @@
 	<p>A very simple bot made for groups of friends who trust each other.</p>
 	<a href="https://discordapp.com/api/oauth2/authorize?client_id=590798866593611776&permissions=2146958839&scope=bot">Invite
 		FrixBot to your server!</a>
-	<hr>
-	<h1>Portal Tag Test</h1>
-	<div id="portalContainer">Portal Container</div>
-	<script>
-		let portal = createPortal('webhook.html')
-		document.getElementById('portalContainer').append(portal)
-	</script>
 	<script src="notificationSystem.js"></script>
 </body>
 

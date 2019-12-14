@@ -6,7 +6,7 @@ if (window.localStorage.getItem('notifications') == null || window.localStorage.
 }
 var closingAnimations = 0
 style.rel = 'stylesheet'
-style.href = 'notifications.css'
+style.href = 'styles/css/notifications.css'
 notifArea.classList.add('notifArea');
 notifArea.id = 'notifArea';
 document.body.append(style);
