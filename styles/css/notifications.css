@@ -36,6 +36,7 @@
     transform: translateY(87%);
     scroll-snap-type: y mandatory;
     border-radius: 10px;
+    width: 20%;
   }
 
   .notification.closingNotif {
@@ -63,6 +64,7 @@
     height: 70%;
     background: #2e2e2e;
     scroll-snap-type: none;
+    width: 100%;
   }
 
   .notifArea:hover > .notification {
