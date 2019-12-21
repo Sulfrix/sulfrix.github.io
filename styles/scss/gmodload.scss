@@ -1,0 +1,55 @@
+.mainContainer {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    margin: auto;
+    padding: 0px;
+    transform: translateY(40%);
+}
+h1 {
+    margin: 0px;
+}
+hr {
+    all: unset;
+    display: block;
+}
+.loadingIcon {
+    transform: scale(0.25);
+    animation: loadingIcon 1s linear infinite;
+}
+
+.miniConsole {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    margin: 10px;
+}
+
+.progressContainer {
+    width: 15%;
+    background-color: #727272;
+    height: 3px;
+    margin: auto;
+    margin-top: 3px;
+}
+
+.progress {
+    background-color: #05b0ff;
+    height: 100%;
+    width: 0%;
+}
+
+@keyframes loadingIcon {
+    0% {transform: rotate(0deg) scale(0.75);}
+    50% {
+        transform: rotate(180deg) scale(0.75);
+    }
+    100% {
+        transform: rotate(360deg) scale(0.75);
+    }
+}
