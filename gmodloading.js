@@ -1,4 +1,4 @@
-var music = new Audio('/gmodLoadMusic.mp3')
+var music = new Audio('/gmodloadMusic.mp3')
 
 music.play()
 
