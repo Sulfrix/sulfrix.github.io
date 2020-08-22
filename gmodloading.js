@@ -1,5 +1,5 @@
 var music = new Audio('/gmodloadMusic.mp3')
-
+music.volume = 0.25;
 music.play()
 
 var fields = {
