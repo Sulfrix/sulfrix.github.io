@@ -1,66 +1,94 @@
 .mainContainer {
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  width: 100%;
-  text-align: center;
-  height: auto;
-  margin: auto;
-  padding: 0px;
-  transform: translateY(40%);
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	width: 100%;
+	text-align: center;
+	height: auto;
+	margin: auto;
+	padding: 0px;
+	transform: translateY(40%);
 }
 
 h1 {
-  margin: 0px;
+	margin: 0px;
 }
 
 hr {
-  all: unset;
-  display: block;
+	all: unset;
+	display: block;
 }
 
 .loadingIcon {
-  transform: scale(0.25);
-  animation: loadingIcon 1s linear infinite;
+	transform: scale(0.25);
+	animation: loadingIcon 1s linear infinite;
 }
 
 .miniConsole {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  margin: 10px;
+	overflow: hidden;
+	margin-left: 20px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	margin: 0px;
+	padding: 10px;
+	height: 20%;
+  width: 35%;
+  background: rgb(0, 0, 0, 0.1);
+  box-shadow: rgb(0, 0, 0, 0.1) 0px 0px 10px;
+  transform: scale(0.5) translate(50%, -50%);
+}
+
+.logHover {
+  color: rgb(0, 0, 0, 0);
+  overflow: hidden;
+  display: inline;
+  transition: all 0.25s;
+}
+
+.logMessage::hover .logHover {
+  color: rgb(0, 0, 0, 1) !important;
+} 
+
+.miniConsole * {
+	overflow-anchor: none;
+}
+
+.anchor {
+	overflow-anchor: auto;
+	height: 1px;
 }
 
 .progressContainer {
-  width: 15%;
-  background-color: #727272;
-  height: 3px;
-  margin: auto;
-  margin-top: 3px;
+	width: 15%;
+	background-color: #727272;
+	height: 3px;
+	margin: auto;
+	margin-top: 3px;
 }
 
 .progress {
-  background-color: #05b0ff;
-  height: 100%;
-  width: 0%;
+	background-color: #05b0ff;
+	height: 100%;
+	width: 0%;
 }
 
 @keyframes loadingIcon {
-  0% {
-    transform: rotate(0deg) scale(0.75);
-  }
-  50% {
-    transform: rotate(180deg) scale(0.75);
-  }
-  100% {
-    transform: rotate(360deg) scale(0.75);
-  }
+	0% {
+		transform: rotate(0deg) scale(0.75);
+	}
+	50% {
+		transform: rotate(180deg) scale(0.75);
+	}
+	100% {
+		transform: rotate(360deg) scale(0.75);
+	}
 }
 html {
-  background-color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /*# sourceMappingURL=gmodload.css.map */

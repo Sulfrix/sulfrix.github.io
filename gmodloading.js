@@ -2,6 +2,23 @@ var music = new Audio('/gmodloadMusic.mp3')
 music.volume = 0.25;
 music.play()
 
+if (outerWidth > 2560 && outerHeight > 1440) {
+    document.all[0].setAttribute("style", "zoom: 200%")
+}
+
+function miniconsole(text, hoverText) {
+    let ele = document.createElement("div")
+    ele.className = "logMessage"
+    let hoverMessage = document.createElement("div")
+    hoverMessage.className = "logHover"
+    hoverMessage.innerHTML = hoverText
+    let anchor = document.getElementById('anchor')
+    ele.innerHTML = text
+    document.querySelector(".miniConsole").insertBefore(ele, anchor)
+    ele.appendChild(hoverMessage)
+    ele.scrollIntoView()
+}
+
 var fields = {
     serverName: document.getElementById('ServerName'),
     loadingStatus: document.getElementById('LoadingStatus'),
@@ -12,10 +29,12 @@ var fields = {
 
 function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
     fields.serverName.innerHTML = servername
+    miniconsole("Welcome to " + servername, "GameDetails()")
 }
 
 function SetStatusChanged(status) {
     fields.loadingStatus.innerHTML = status
+    miniconsole(status, "SetStatusChanged()")
 }
 
 function SetFilesTotal(total) {
