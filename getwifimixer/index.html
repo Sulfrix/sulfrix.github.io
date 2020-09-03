@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="keyword.js"></script>
+		<script src="main.js"></script>
+		<title>Get Wifi Mixer</title>
+	</head>
+	<body>
+		<h1>Get Wifi Mixer</h1>
+		<p1
+			>Type variations of "get wifi anywhere you go" below and click the
+			button!</p1
+		>
+		<br />
+		<input id="inputbox" value="get wi fi anywhere you go" />
+		<button onclick="getwififrominput()">Get Wifi</button>
+		<br>
+		<p1 class="gray" id="validDisplay"></p1>
+		<script>
+			document.getElementById("inputbox").addEventListener("input", (e) => {
+				updatePreview()
+			});
+			updatePreview()
+		</script>
+	</body>
+</html>
