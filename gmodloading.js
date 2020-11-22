@@ -36,7 +36,8 @@ function GameDetails(
 ) {
 	fields.serverName.innerHTML = servername;
 	miniconsole("Welcome to " + servername, "GameDetails()");
-	miniconsole("Current Map: " + mapname);
+    miniconsole("Current Map: " + mapname);
+    document.documentElement.style.backgroundImage = `url("gmodBackgrounds/${mapname}.jpg")`
 }
 
 function SetStatusChanged(status) {

@@ -1,12 +1,15 @@
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Gmod Loading Screen</title>
-		<link rel="stylesheet" href="styles/css/gmodload.css" />
-	</head>
-	<body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Gmod Loading Screen</title>
+	<link rel="stylesheet" href="styles/css/gmodload.css" />
+</head>
+
+<body>
+	<div class="center">
 		<div class="mainContainer">
 			<h1 id="ServerName">ServerName</h1>
 			<p1 id="LoadingStatus">LoadingStatus</p1>
@@ -14,12 +17,13 @@
 				<div class="progress" id="progress"></div>
 			</div>
 			<hr />
-			<img class="loadingIcon" src="loadingIcon.png" />
+			<img class="loadingIcon" src="loadingIcon.png" width="148" height="148" />
 		</div>
+	</div>
 		<div class="miniConsole">
 			<div class="anchor" id="anchor"></div>
 		</div>
-
 		<script src="/gmodloading.js"></script>
-	</body>
+</body>
+
 </html>
