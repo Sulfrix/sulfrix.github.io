@@ -36,7 +36,7 @@ function GameDetails(
 ) {
 	fields.serverName.innerHTML = servername;
 	miniconsole("Welcome to " + servername, "GameDetails()");
-    miniconsole("Current Map: " + mapname);
+    miniconsole("Current Map: " + mapname + " on " + gamemode);
     document.documentElement.style.backgroundImage = `url("gmodBackgrounds/${mapname}.jpg")`
 }
 
@@ -60,4 +60,11 @@ function refreshProgress() {
 	let filesNeeded = fields.filesNeeded;
 	calculated = ((currentFiles - filesNeeded) / currentFiles) * 100;
 	document.getElementById("progress").style = `width: ${calculated}%`;
+}
+
+function devMode() {
+    GameDetails("Garry's Mod", "penis", "gm_construct", 12, undefined, "Sandbox")
+    SetFilesTotal(100)
+    SetFilesNeeded(25)
+    SetStatusChanged("Loading files? I don't know what it does yet.")
 }
