@@ -116,7 +116,11 @@ hr {
 	background-color: #727272;
 	height: 8px;
 	margin-top: 3px;
-    border: 1px solid #ffffff9a;
+	border: 2px solid #ffffff9a;
+	border-radius: 8px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
 }
 
 #LoadingStatus {
@@ -127,7 +131,8 @@ hr {
 	background-color: #05b0ff;
 	height: 100%;
 	width: 0%;
-    transition: all 0.25s;
+	transition: all 0.25s;
+	border-radius: 8px;
 }
 
 @keyframes loadingIcon {
