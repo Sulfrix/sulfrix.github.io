@@ -1,3 +1,5 @@
+var IN_ENGINE = navigator.userAgent.indexOf( "Valve Source Client" ) != -1;
+
 var music = new Audio("/gmodloadMusic.mp3");
 music.volume = 0.5;
 music.play();
@@ -36,8 +38,8 @@ function GameDetails(
 ) {
 	fields.serverName.innerHTML = servername;
 	miniconsole("Welcome to " + servername, "GameDetails()");
-    miniconsole("Current Map: " + mapname + " on " + gamemode);
-    document.documentElement.style.backgroundImage = `url("gmodBackgrounds/${mapname}.jpg")`
+	miniconsole("Current Map: " + mapname + " on " + gamemode);
+	document.documentElement.style.backgroundImage = `url("gmodBackgrounds/${mapname}.jpg")`;
 }
 
 function SetStatusChanged(status) {
@@ -63,8 +65,27 @@ function refreshProgress() {
 }
 
 function devMode() {
-    GameDetails("Garry's Mod", "penis", "gm_construct", 12, undefined, "Sandbox")
-    SetFilesTotal(100)
-    SetFilesNeeded(25)
-    SetStatusChanged("Loading files? I don't know what it does yet.")
+	GameDetails("Garry's Mod", "penis", "gm_construct", 12, undefined, "Sandbox");
+	SetFilesTotal(100);
+	SetFilesNeeded(25);
+	SetStatusChanged("[Dev Mode] Loading text goes here");
+	miniconsole("Developer mode enabled.")
 }
+
+function DownloadingFile(file) {
+	SetStatusChanged("Downloading: " + file)
+}
+
+if (!IN_ENGINE) {
+	devMode()
+}
+
+
+
+var clickevent = function(e) {
+	music.play()
+	document.removeEventListener("click", clickevent)
+}
+
+document.addEventListener("click", clickevent)
+
