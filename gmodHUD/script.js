@@ -11,6 +11,10 @@ var meters = [];
 var currentState = {};
 var scaleFactor = 1.5;
 
+function runLua(lua) {
+  console.log("RUNLUA:" + lua)
+}
+
 class Meter {
 	/**
 	 * A hud meter.
@@ -140,10 +144,7 @@ function setup() {
 function draw() {
   clear();
   scale(scaleFactor)
-  if (IN_ENGINE) {
-    // @ts-ignore
-    runLua('requestData("playerStatus")')
-  }
+  runLua('requestData("playerStatus")')
 	meters.forEach((meter) => {
     meter.draw();
 	});
