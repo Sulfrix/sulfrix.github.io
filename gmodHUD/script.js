@@ -144,7 +144,6 @@ function setup() {
 function draw() {
   clear();
   scale(scaleFactor)
-  runLua('requestData("playerStatus")')
 	meters.forEach((meter) => {
     meter.draw();
 	});
